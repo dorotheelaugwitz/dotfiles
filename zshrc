@@ -5,7 +5,7 @@ CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 HYPHEN_INSENSITIVE="true"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 source $ZSH/oh-my-zsh.sh
 [[ -f aliases ]] && source aliases
