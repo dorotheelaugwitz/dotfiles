@@ -9,7 +9,7 @@ ZSH_THEME="agnoster"
 
 source $ZSH/oh-my-zsh.sh
 [[ -f aliases ]] && source aliases
-# [[ -f g ]] && source g
+
 for function in ~/dotfiles/functions/*; do
   source $function
 done
@@ -19,3 +19,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# For capybara-webkit
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
