@@ -10,12 +10,14 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" Make backspace work like backspace
+set backspace=2
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
-
 
 " Make it obvious where 80 characters is
 set textwidth=80
