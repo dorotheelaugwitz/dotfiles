@@ -13,9 +13,6 @@ set expandtab
 " Make backspace work like backspace
 set backspace=2
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
