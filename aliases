@@ -7,4 +7,7 @@ alias h="cd ~"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Rails
-alias s="rspec"
+alias be="bundle exec"
+alias s="bundle exec rspec"
+alias rc="bundle exec rails console"
+alias rs="bundle exec rails server"

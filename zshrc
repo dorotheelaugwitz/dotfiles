@@ -1,9 +1,9 @@
 export ZSH="/Users/Doro/.oh-my-zsh"
 export LANG=en_US.UTF-8
 
-CASE_SENSITIVE="true"
+CASE_SENSITIVE="false"
 COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="dd.mm.yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
 ZSH_THEME="agnoster"
 
