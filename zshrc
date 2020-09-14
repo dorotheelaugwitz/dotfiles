@@ -1,4 +1,4 @@
-export ZSH="/Users/Doro/.oh-my-zsh"
+export ZSH="/Users/doro/.oh-my-zsh"
 export LANG=en_US.UTF-8
 
 CASE_SENSITIVE="false"
@@ -8,7 +8,7 @@ HYPHEN_INSENSITIVE="true"
 ZSH_THEME="agnoster"
 
 source $ZSH/oh-my-zsh.sh
-[[ -f aliases ]] && source aliases
+source dotfiles/aliases
 
 for function in ~/dotfiles/functions/*; do
   source $function
@@ -28,10 +28,10 @@ if command -v rbenv >/dev/null; then
   eval "$(rbenv init - --no-rehash)"
 fi
 
-# For capybara-webkit
-PATH="$PATH:$(brew --prefix qt@5.5)/bin"
-
 # ensure dotfiles bin directory is loaded first
 PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 
 export -U PATH
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

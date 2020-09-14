@@ -16,8 +16,8 @@ set backspace=2
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" Make it obvious where 80 characters is
-set textwidth=80
+" Make it obvious where 72 characters is
+set textwidth=72
 set colorcolumn=+1
 
 " Numbers
