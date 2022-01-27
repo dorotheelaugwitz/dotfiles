@@ -2,6 +2,7 @@ alias ll="ls -al"
 alias ls="ls -G"
 alias ln="ln -v"
 alias h="cd ~"
+alias gf="git flow"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'

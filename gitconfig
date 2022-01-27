@@ -5,6 +5,7 @@
   ci = commit -v
   cm = commit -m
   co = checkout
+  cod = checkout develop
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
   fa = fetch --all
   l = log --decorate
@@ -13,6 +14,7 @@
   pl = pull
   ps = push
   ri = rebase -i
+  rid = rebase -i origin/develop
   rim = rebase -i origin/master
   rpo = remote prune origin
   unchange = checkout --
@@ -41,7 +43,7 @@
 [push]
 	default = current
 [user]
-  email = dorothee.laugwitz@posteo.de
+	email = dorothee.laugwitz@posteo.de
 	name = Dorothee Laugwitz
 [filter "lfs"]
 	clean = git-lfs clean -- %f

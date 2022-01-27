@@ -1,4 +1,4 @@
-export ZSH="/Users/doro/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
 
 CASE_SENSITIVE="false"
@@ -14,11 +14,13 @@ for function in ~/dotfiles/functions/*; do
   source $function
 done
 
-# List all files after changing current directory
-cd () { builtin cd "$@" && ls -a; }
-
 # zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -35,3 +37,5 @@ export -U PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+. /usr/local/opt/asdf/libexec/asdf.sh
