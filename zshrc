@@ -14,16 +14,8 @@ for function in ~/dotfiles/functions/*; do
   source $function
 done
 
-# zsh-completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # load rbenv if available
 if command -v rbenv >/dev/null; then
@@ -38,4 +30,5 @@ export -U PATH
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
