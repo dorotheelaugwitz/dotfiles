@@ -1,0 +1,22 @@
+{
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.autoClosingBrackets": "beforeWhitespace",
+    "editor.fontFamily": "FiraCode-Retina, Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.letterSpacing": 0.5,
+    "editor.lineHeight": 1.5,
+    "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": true,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "trailing",
+    "files.trimTrailingWhitespace": true,
+    "ruby.rubocop.useBundler": true,
+    "tabnine.experimentalAutoImports": true,
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Palenight (Mild Contrast)",
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.editor.decorations.colors": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "right"
+}

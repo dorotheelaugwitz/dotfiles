@@ -1,0 +1,74 @@
+"*":
+  "atom-beautify":
+    executables:
+      rubocop:
+        path: "/Users/doro/.rbenv/shims/rubocop"
+    general:
+      _analyticsUserId: ""
+      beautifyEntireFileOnSave: false
+    ruby: {}
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnType: false
+    "atom-ide-debugger": {}
+    "atom-ide-diagnostics-ui": {}
+    "atom-ide-outline-view": {}
+    use: {}
+  "atom-package-deps":
+    ignored: []
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+    enableAutoConfirmSingleSuggestion: false
+    includeCompletionsFromAllBuffers: false
+  core:
+    allowPendingPaneItems: false
+    audioBeep: false
+    debugLSP: true
+    destroyEmptyPanes: false
+    disabledPackages: [
+      "linter"
+    ]
+    packagesWithKeymapsDisabled: [
+      "base64"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    autoIndentOnPaste: false
+    multiCursorOnClick: false
+    preferredLineLength: 100
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: ""
+  "file-icons": {}
+  fonts:
+    fontFamily: "FiraCode"
+  "git-blame":
+    columnWidth: 384
+  linter: {}
+  "linter-haml": {}
+  "linter-rubocop":
+    command: "/Users/doro/.rbenv/shims/rubocop"
+    disableWhenNoConfigFile: true
+  "linter-ruby": {}
+  "linter-ui-default":
+    panelHeight: 217
+  motepair:
+    secureConnection: true
+  "seti-syntax":
+    themeColor: "Steel"
+  "seti-ui":
+    compactView: true
+    fileIcons: false
+    hideProjectTab: true
+    themeColor: "Steel"
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+  zentabs:
+    maximumOpenedTabs: 8
