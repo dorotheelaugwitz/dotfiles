@@ -7,8 +7,10 @@ HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
 ZSH_THEME="agnoster"
 
+plugins=(pipenv)
+
 source $ZSH/oh-my-zsh.sh
-source dotfiles/aliases
+source ~/dotfiles/aliases
 
 for function in ~/dotfiles/functions/*; do
   source $function
@@ -29,6 +31,8 @@ export -U PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
 
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh

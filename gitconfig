@@ -12,6 +12,7 @@
   ll = log --oneline --decorate --graph --all
   pf = push -f
   pl = pull
+  pu = push --set-upstream
   ps = push
   ri = rebase -i
   rid = rebase -i origin/develop
@@ -19,6 +20,7 @@
   rpo = remote prune origin
   unchange = checkout --
   uncommit = reset --soft HEAD^
+  unstage = restore --staged .
 [color]
   branch = auto
   diff = auto
