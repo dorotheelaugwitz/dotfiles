@@ -1,22 +1,55 @@
 {
+    "[FortranFreeForm]": {
+        "editor.rulers": [
+            130
+        ]
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.rulers": [
+            80
+        ]
+    },
     "editor.acceptSuggestionOnEnter": "off",
-    "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.fontFamily": "FiraCode-Retina, Fira Code, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 15,
+    "editor.indentSize": "tabSize",
     "editor.letterSpacing": 0.5,
     "editor.lineHeight": 1.5,
     "editor.minimap.enabled": false,
     "editor.renderControlCharacters": true,
-    "editor.tabSize": 2,
     "editor.renderWhitespace": "trailing",
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "ruby.rubocop.useBundler": true,
-    "tabnine.experimentalAutoImports": true,
+    "fortran.fortls.path": "/opt/homebrew/bin/fortls",
+    "gitblame.inlineMessageFormat": "Last change by ${author.name} (${time.ago})",
+    "gitblame.statusBarMessageFormat": "Last change by ${author.name} (${time.ago})",
+    "notebook.lineNumbers": "on",
+    "security.workspace.trust.untrustedFiles": "open",
     "telemetry.telemetryLevel": "off",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "terminal.integrated.fontSize": 14,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "NOTE"
+    ],
+    "window.nativeTabs": true,
     "workbench.colorTheme": "Palenight (Mild Contrast)",
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.decorations.colors": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.sideBar.location": "right"
+    "workbench.startupEditor": "none"
 }

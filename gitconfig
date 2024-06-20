@@ -6,6 +6,7 @@
   cm = commit -m
   co = checkout
   cod = checkout develop
+  com = checkout main
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
   fa = fetch --all
   l = log --decorate
@@ -16,7 +17,7 @@
   ps = push
   ri = rebase -i
   rid = rebase -i origin/develop
-  rim = rebase -i origin/master
+  rim = rebase -i origin/main
   rpo = remote prune origin
   unchange = checkout --
   uncommit = reset --soft HEAD^
@@ -29,7 +30,7 @@
 [core]
   autocrlf = input
   editor = vim
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/doro/.gitignore
 [fetch]
   prune = true
 [format]
@@ -54,3 +55,5 @@
 	required = true
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
