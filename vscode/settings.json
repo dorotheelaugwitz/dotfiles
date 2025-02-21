@@ -1,44 +1,60 @@
 {
-    "[FortranFreeForm]": {
-        "editor.rulers": [
-            130
-        ]
-    },
     "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+      "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[python]": {
-        "editor.rulers": [
-            80
-        ]
+      "editor.rulers": [80]
     },
-    "editor.acceptSuggestionOnEnter": "off",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.bracketPairColorization.enabled": true,
     "editor.fontFamily": "FiraCode-Retina, Fira Code, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 15,
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": true,
     "editor.indentSize": "tabSize",
     "editor.letterSpacing": 0.5,
     "editor.lineHeight": 1.5,
     "editor.minimap.enabled": false,
+    "editor.quickSuggestions": {
+      "comments": false,
+      "other": true,
+      "strings": true
+    },
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "trailing",
+    "editor.smoothScrolling": true,
+    "editor.suggestSelection": "first",
     "editor.tabSize": 2,
+    "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "files.exclude": {
+      "**/.DS_Store": true,
+      "**/.git": true,
+      "**/.pytest_cache": true,
+      "**/__pycache__": true
+    },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "gitblame.inlineMessageFormat": "Last change by ${author.name} (${time.ago})",
     "gitblame.statusBarMessageFormat": "Last change by ${author.name} (${time.ago})",
     "notebook.lineNumbers": "on",
+    "search.smartCase": true,
+    "search.useGlobalIgnoreFiles": true,
     "security.workspace.trust.untrustedFiles": "open",
-    "telemetry.telemetryLevel": "off",
+    "gitlens.telemetry.enabled": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.fontWeightBold": "normal",
     "terminal.integrated.fontSize": 14,
+    "terminal.integrated.persistentSessionReviveProcess": "never",
     "window.nativeTabs": true,
     "workbench.colorTheme": "Palenight (Mild Contrast)",
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.decorations.colors": false,
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.startupEditor": "none"
-}
+  }
