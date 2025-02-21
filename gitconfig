@@ -3,18 +3,21 @@
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
   ca = commit --amend
   ci = commit -v
+  cleanup = !git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d
   cm = commit -m
   co = checkout
   cod = checkout develop
   com = checkout main
+  conflicts = diff --name-only --diff-filter=U
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
   fa = fetch --all
   l = log --decorate
   ll = log --oneline --decorate --graph --all
   pf = push -f
   pl = pull
-  pu = push --set-upstream
   ps = push
+  pu = push --set-upstream
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
   ri = rebase -i
   rid = rebase -i origin/develop
   rim = rebase -i origin/main
@@ -22,42 +25,52 @@
   unchange = checkout --
   uncommit = reset --soft HEAD^
   unstage = restore --staged .
-  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
-  cleanup = !git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d
-  conflicts = diff --name-only --diff-filter=U
+
 [color]
   branch = auto
   diff = auto
   status = auto
   ui = auto
+
 [core]
   autocrlf = input
   editor = vim
-	excludesfile = /Users/doro/.gitignore
+  excludesfile = /Users/doro/.gitignore
   whitespace = trailing-space,space-before-tab
+
 [fetch]
   prune = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+
 [format]
   pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+
 [github]
   user = dorotheelaugwitz
+
 [include]
   path = ~/.gitconfig.local
+
+[init]
+  defaultBranch = main
+
 [merge]
   ff = only
+
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
-[push]
-	default = current
-[user]
-	email = dorothee.laugwitz@posteo.de
-	name = Dorothee Laugwitz
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+
 [pull]
-	rebase = false
-[init]
-	defaultBranch = main
+  rebase = false
+
+[push]
+  default = current
+
+[user]
+  email = dorothee.laugwitz@posteo.de
+  name = Dorothee Laugwitz
