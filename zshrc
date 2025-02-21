@@ -70,7 +70,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pip pipenv)
+plugins=(pip pipenv zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/aliases
@@ -92,7 +92,7 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='nvim'
 # fi
-export EDITOR=code
+export EDITOR=cursor
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -110,4 +110,5 @@ export EDITOR=code
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+export PATH=$HOME/.cargo/env:$PATH

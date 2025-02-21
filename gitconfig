@@ -22,6 +22,9 @@
   unchange = checkout --
   uncommit = reset --soft HEAD^
   unstage = restore --staged .
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+  cleanup = !git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d
+  conflicts = diff --name-only --diff-filter=U
 [color]
   branch = auto
   diff = auto
@@ -31,6 +34,7 @@
   autocrlf = input
   editor = vim
 	excludesfile = /Users/doro/.gitignore
+  whitespace = trailing-space,space-before-tab
 [fetch]
   prune = true
 [format]
