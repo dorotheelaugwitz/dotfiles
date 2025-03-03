@@ -20,3 +20,6 @@ alias denv="deactivate"
 
 # pip
 alias pip="pip3"
+
+# dbt
+alias cleardbt=uv run dbt run-operation drop_old_relations --args '{"dryrun": True}'
