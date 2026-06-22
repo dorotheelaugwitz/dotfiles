@@ -36,7 +36,18 @@
   autocrlf = input
   editor = micro
   excludesfile = {{ .chezmoi.homeDir }}/.gitignore
+  pager = delta
   whitespace = trailing-space,space-before-tab
+
+[delta]
+  navigate = true
+  line-numbers = true
+
+[diff]
+  colorMoved = default
+
+[interactive]
+  diffFilter = delta --color-only
 
 [fetch]
   prune = true
@@ -60,6 +71,7 @@
   defaultBranch = main
 
 [merge]
+  conflictstyle = zdiff3
   ff = only
 
 [pretty]

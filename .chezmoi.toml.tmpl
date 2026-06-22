@@ -1,7 +1,4 @@
-{{- $machine := "personal" -}}
-{{- if eq .chezmoi.hostname "plancraft-mbp" -}}
-{{-   $machine = "work" -}}
-{{- end -}}
+{{- $machine := promptStringOnce . "machine" "Machine type (work or personal)" "personal" -}}
 [data]
     machine = {{ $machine | quote }}
 

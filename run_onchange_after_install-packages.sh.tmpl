@@ -1,12 +1,13 @@
 #!/bin/sh
-# Installs the base toolchain (Homebrew, fish, micro, mise) + mise runtimes.
+# Installs the full toolchain (CLI + GUI) and the mise runtimes.
 # Idempotent. Re-run by chezmoi when this file or the mise tool list changes.
 #
 # mise tools hash: {{ include "dot_config/mise/config.toml.tmpl" | sha256sum }}
+# fish plugins hash: {{ include "dot_config/fish/fish_plugins" | sha256sum }}
 
 set -eu
 
-echo "==> Bootstrapping toolchain (machine: {{ .machine }})"
+echo "==> Bootstrapping (machine: {{ .machine }})"
 
 # --- Homebrew ---
 if ! command -v brew >/dev/null 2>&1; then
@@ -15,11 +16,15 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# --- fish ---
-if ! command -v fish >/dev/null 2>&1; then
-    echo "==> Installing fish"
-    brew install fish
-fi
+# --- CLI tools ---
+echo "==> Installing CLI tools"
+brew install fish micro mise eza bat fd fzf git-delta jj
+
+# --- GUI apps ---
+echo "==> Installing GUI apps"
+brew install --cask ghostty zed
+
+# --- make fish the default shell ---
 fish_path="$(command -v fish)"
 if ! grep -qxF "$fish_path" /etc/shells 2>/dev/null; then
     echo "==> Registering fish in /etc/shells (may prompt for sudo)"
@@ -30,17 +35,15 @@ if [ "${SHELL:-}" != "$fish_path" ]; then
     chsh -s "$fish_path"
 fi
 
-# --- micro ---
-if ! command -v micro >/dev/null 2>&1; then
-    echo "==> Installing micro"
-    brew install micro
+# --- fish plugins (Fisher + agnoster prompt) ---
+if ! fish -c 'functions -q fisher' 2>/dev/null; then
+    echo "==> Installing Fisher"
+    fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
 fi
+echo "==> Installing fish plugins"
+fish -c 'fisher update'
 
-# --- mise ---
-if ! command -v mise >/dev/null 2>&1; then
-    echo "==> Installing mise"
-    brew install mise
-fi
+# --- mise runtimes ---
 echo "==> Installing runtimes from ~/.config/mise/config.toml"
 mise install
 

@@ -9,6 +9,7 @@ synced across machines through this Git repo.
 | Terminal | [Ghostty](https://ghostty.org/)                                                           |
 | Editors  | [Zed](https://zed.dev/) (GUI) · [micro](https://micro-editor.github.io/) (terminal & git) |
 | Runtimes | [mise](https://mise.jdx.dev/)                                                             |
+| CLI      | eza · bat · fd · fzf · delta                                                              |
 
 Machines are identified by hostname, so the same repo produces the right config
 on each — see [Configuration](#configuration).
@@ -19,31 +20,35 @@ on each — see [Configuration](#configuration).
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply dorotheelaugwitz
 ```
 
-This installs chezmoi, clones this repo, applies it, and runs the bootstrap
-script — which installs Homebrew, fish (and makes it the default shell), micro,
-and mise, then installs the runtimes declared for this machine.
+That one command installs chezmoi, clones this repo, applies it, and runs the
+bootstrap, which installs:
 
-GUI apps are not installed by the bootstrap. Install them once with:
+- Homebrew
+- CLI tools: fish (set as the default shell), micro, mise, eza, bat, fd, fzf, git-delta, jj
+- GUI apps: Ghostty, Zed
+- the mise runtimes for this machine
 
-```sh
-brew install --cask ghostty zed
-```
+It also applies macOS defaults once (`run_once_macos-defaults.sh`).
+
+### Remaining manual steps
+
+- **Machine type** — `chezmoi init` asks whether this is a `work` or `personal`
+  machine (see [Configuration](#configuration)).
+- **Git push** — add an SSH key to GitHub so `autoPush` works.
+- **Zed** — its settings aren't managed (see [Editors & terminal](#editors--terminal)); configure it as you like.
 
 ## Configuration
 
-Machine-specific behaviour is driven by the hostname:
+Each machine is either `work` or `personal`. `chezmoi init` asks once and stores
+the answer in `~/.config/chezmoi/chezmoi.toml`; every template keys off it (git
+email, mise tools, etc.).
 
-- `.chezmoi.toml.tmpl` sets `machine` to `work` or `personal` from the hostname,
-  and the other templates key off that value. Check what chezmoi sees with:
+```sh
+chezmoi init --source=~/dotfiles --promptString machine=work   # or =personal
+```
 
-  ```sh
-  chezmoi execute-template '{{ .chezmoi.hostname }}'
-  ```
-
-  Give each machine a distinct, stable hostname (e.g.
-  `sudo scutil --set HostName my-mac`) so the two never collide.
-
-- `dot_gitconfig.tmpl` selects the git email per machine.
+To change it later, edit `machine` in `~/.config/chezmoi/chezmoi.toml` (or delete
+that file and re-run `chezmoi init`).
 
 ## Repository layout
 
@@ -55,6 +60,7 @@ chezmoi encodes the target path and attributes in the source filename
 | `dot_config/fish/config.fish`                 | `~/.config/fish/config.fish`                       |
 | `dot_config/fish/conf.d/aliases.fish`         | `~/.config/fish/conf.d/aliases.fish`               |
 | `dot_config/fish/functions/g.fish`            | `~/.config/fish/functions/g.fish`                  |
+| `dot_config/fish/fish_plugins`                | `~/.config/fish/fish_plugins` (Fisher plugins)     |
 | `dot_config/ghostty/config`                   | `~/.config/ghostty/config`                         |
 | `dot_config/micro/settings.json`              | `~/.config/micro/settings.json`                    |
 | `dot_config/mise/config.toml.tmpl`            | `~/.config/mise/config.toml`                       |
@@ -62,6 +68,7 @@ chezmoi encodes the target path and attributes in the source filename
 | `dot_gitignore`                               | `~/.gitignore` (git `excludesfile`)                |
 | `.chezmoi.toml.tmpl`                          | generates `~/.config/chezmoi/chezmoi.toml` on init |
 | `run_onchange_after_install-packages.sh.tmpl` | toolchain bootstrap                                |
+| `run_once_macos-defaults.sh`                  | macOS system defaults (runs once)                  |
 
 ## Daily workflow
 
@@ -95,6 +102,9 @@ mise install            # install everything in scope
   per machine.
 - **micro** is the modeless terminal editor, set as `$EDITOR`/`$VISUAL` and
   git's `core.editor`. Open files in the GUI with `zed`.
+- **Prompt** — [hauleth/agnoster](https://github.com/hauleth/agnoster) (powerline)
+  via Fisher; the plugin list is `dot_config/fish/fish_plugins` and the bootstrap
+  runs `fisher update`. `jj` is installed so agnoster's jujutsu segment doesn't error.
 - **Ghostty** uses the built-in `Sea Shells` theme (`ghostty +list-themes` to
   browse); fish shell integration is automatic. Ghostty advertises
   `TERM=xterm-ghostty`, so to SSH into hosts that lack that terminfo entry, copy

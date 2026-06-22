@@ -1,6 +1,9 @@
 # ~/.config/mise/config.toml
 # Per-project versions go in a project-local .mise.toml and override these.
 
+[settings]
+python.github_attestations = false
+
 [tools]
 {{- if eq .machine "work" }}
 python     = "3.13"

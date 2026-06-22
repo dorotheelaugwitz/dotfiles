@@ -1,11 +1,22 @@
 # ~/.config/fish/conf.d/aliases.fish
 
-alias ll='ls -al'
-alias ls='ls -G'
+# ls -> eza, with a plain-ls fallback if eza isn't installed
+if type -q eza
+    alias ls='eza --group-directories-first'
+    alias ll='eza -la --git --group-directories-first'
+    alias la='eza -a --group-directories-first'
+    alias lt='eza --tree --level=2'
+else
+    alias ls='ls -G'
+    alias ll='ls -al'
+end
 alias ln='ln -v'
 alias h='cd ~'
 alias gf='git flow'
 alias path='printf "%s\n" $PATH'
+
+# cat -> bat
+type -q bat; and alias cat='bat'
 
 # Rails
 alias be='bundle exec'

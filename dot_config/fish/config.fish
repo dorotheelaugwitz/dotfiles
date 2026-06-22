@@ -16,3 +16,8 @@ if type -q mise
 end
 
 fish_add_path $HOME/.local/bin
+
+# fzf key bindings (Ctrl-R history, Ctrl-T files, Alt-C cd)
+if type -q fzf
+    fzf --fish | source
+end
