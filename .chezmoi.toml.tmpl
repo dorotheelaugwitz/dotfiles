@@ -1,6 +1,11 @@
 {{- $machine := "personal" -}}
-{{- if eq .chezmoi.hostname "Mac" -}}
+{{- if eq .chezmoi.hostname "plancraft-mbp" -}}
 {{-   $machine = "work" -}}
 {{- end -}}
 [data]
     machine = {{ $machine | quote }}
+
+# Auto-commit and push source changes (needs push credentials).
+[git]
+    autoCommit = true
+    autoPush = true

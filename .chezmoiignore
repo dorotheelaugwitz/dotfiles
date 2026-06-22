@@ -1,2 +1,2 @@
-# Files in this repo that chezmoi should NOT apply to the home directory.
+# Not applied to $HOME.
 README.md

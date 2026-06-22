@@ -1,18 +1,10 @@
-# ~/.config/ghostty/config  (managed by chezmoi)
-#
-# Ghostty's "key = value" config. Full reference:
-#   ghostty +show-config --default --docs
+# ~/.config/ghostty/config
 
-# Font (matches the Zed editor font).
 font-family = "Fira Code"
 font-size = 14
 
-# Colors. "Sea Shells" is a built-in Ghostty theme (sourced from the
-# iterm2-color-schemes collection) and is identical to the old
-# SeaShells.itermcolors palette, so we just reference it by name.
-# List all themes with: ghostty +list-themes
+# Built-in theme; list others with: ghostty +list-themes
 theme = Sea Shells
 
-# Cursor (bar, matching Zed).
 cursor-style = bar
 cursor-style-blink = true
