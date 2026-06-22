@@ -70,7 +70,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pip pipenv zsh-syntax-highlighting)
+plugins=(dbt pip pipenv zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/aliases
@@ -112,3 +112,15 @@ export EDITOR=cursor
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig"
 
 export PATH=$HOME/.cargo/env:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2025-05-15 08:10:01
+export PATH="$PATH:/Users/doro/.local/bin"
+export PATH="/Users/doro/.bun/bin:$PATH"
+
+
+# dbt aliases
+alias dbtf=/Users/doro/.local/bin/dbt
