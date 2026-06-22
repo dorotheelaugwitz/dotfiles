@@ -3,6 +3,10 @@
 font-family = "Fira Code"
 font-size = 12
 
+# Auto-bump unreadable text (e.g. agnoster's dark-on-dark path segment).
+# 1 = off, higher = more forced contrast (1-21).
+minimum-contrast = 3
+
 # Built-in theme; list others with: ghostty +list-themes
 theme = Sea Shells
 
