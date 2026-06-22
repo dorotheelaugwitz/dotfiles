@@ -8,3 +8,11 @@ theme = Sea Shells
 
 cursor-style = bar
 cursor-style-blink = true
+
+# New tabs open in the home directory (don't inherit the previous tab's cwd)
+working-directory = home
+tab-inherit-working-directory = false
+
+# Switch tabs with cmd + arrows
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab

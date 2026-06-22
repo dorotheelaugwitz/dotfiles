@@ -9,6 +9,7 @@ set -gx LANG en_US.UTF-8
 set -gx EDITOR micro
 set -gx VISUAL micro
 set -gx PKG_CONFIG_PATH /opt/homebrew/lib/pkgconfig
+set -gx LESS "-R --mouse"   # mouse-wheel scrolling in pagers (git diff, man, ...)
 
 # Activate mise-managed runtimes.
 if type -q mise
