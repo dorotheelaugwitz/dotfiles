@@ -55,7 +55,6 @@ chezmoi encodes the target path and attributes in the source filename
 | `dot_config/fish/config.fish`                 | `~/.config/fish/config.fish`                       |
 | `dot_config/fish/conf.d/aliases.fish`         | `~/.config/fish/conf.d/aliases.fish`               |
 | `dot_config/fish/functions/g.fish`            | `~/.config/fish/functions/g.fish`                  |
-| `dot_config/fish/fish_plugins`                | `~/.config/fish/fish_plugins` (Fisher plugins)     |
 | `dot_config/ghostty/config`                   | `~/.config/ghostty/config`                         |
 | `dot_config/micro/settings.json`              | `~/.config/micro/settings.json`                    |
 | `dot_config/mise/config.toml.tmpl`            | `~/.config/mise/config.toml`                       |
@@ -96,9 +95,6 @@ mise install            # install everything in scope
   per machine.
 - **micro** is the modeless terminal editor, set as `$EDITOR`/`$VISUAL` and
   git's `core.editor`. Open files in the GUI with `zed`.
-- **Prompt** — bobthefish (powerline, gruvbox) via Fisher; the plugin list is
-  `dot_config/fish/fish_plugins`, settings live in `config.fish`, and the
-  bootstrap installs Fisher and runs `fisher update`.
 - **Ghostty** uses the built-in `Sea Shells` theme (`ghostty +list-themes` to
   browse); fish shell integration is automatic. Ghostty advertises
   `TERM=xterm-ghostty`, so to SSH into hosts that lack that terminfo entry, copy

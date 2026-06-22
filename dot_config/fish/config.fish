@@ -16,10 +16,3 @@ if type -q mise
 end
 
 fish_add_path $HOME/.local/bin
-
-# bobthefish prompt (powerline, gruvbox)
-set -g theme_color_scheme gruvbox
-set -g theme_nerd_fonts yes
-set -g theme_powerline_fonts yes
-set -g theme_display_git yes
-set -g theme_display_git_dirty yes

@@ -15,7 +15,7 @@ alias rs='bundle exec rails server'
 
 # Python
 alias t='python -m pytest'
-alias aenv='source ./.venv/bin/activate.fish'
+alias aenv='source ./.venv/bin/activate.sh'
 alias denv='deactivate'
 alias pip='pip3'
 

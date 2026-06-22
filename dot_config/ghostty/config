@@ -1,7 +1,7 @@
 # ~/.config/ghostty/config
 
 font-family = "Fira Code"
-font-size = 14
+font-size = 12
 
 # Built-in theme; list others with: ghostty +list-themes
 theme = Sea Shells

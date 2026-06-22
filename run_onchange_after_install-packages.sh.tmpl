@@ -3,7 +3,6 @@
 # Idempotent. Re-run by chezmoi when this file or the mise tool list changes.
 #
 # mise tools hash: {{ include "dot_config/mise/config.toml.tmpl" | sha256sum }}
-# fish plugins hash: {{ include "dot_config/fish/fish_plugins" | sha256sum }}
 
 set -eu
 
@@ -44,13 +43,5 @@ if ! command -v mise >/dev/null 2>&1; then
 fi
 echo "==> Installing runtimes from ~/.config/mise/config.toml"
 mise install
-
-# --- fish plugins (Fisher) ---
-if ! fish -c 'functions -q fisher' 2>/dev/null; then
-    echo "==> Installing Fisher"
-    fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
-fi
-echo "==> Installing fish plugins from ~/.config/fish/fish_plugins"
-fish -c 'fisher update'
 
 echo "==> Done. Open a new terminal to start using fish."
