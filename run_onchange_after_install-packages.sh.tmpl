@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# Bootstraps the base toolchain on this machine. chezmoi runs this on first
+# apply, and again whenever this script or the mise tool list changes.
+# It is idempotent — safe to re-run.
+#
+# The hash below makes chezmoi re-run this script when the mise config
+# (i.e. the set of managed tools) changes, so `mise install` picks them up:
+# mise tools hash: {{ include "dot_config/mise/config.toml.tmpl" | sha256sum }}
+
+set -eu
+
+echo "==> Bootstrapping toolchain (machine: {{ .machine }})"
+
+# --- Homebrew ---
+if ! command -v brew >/dev/null 2>&1; then
+    echo "==> Installing Homebrew"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# --- fish shell ---
+if ! command -v fish >/dev/null 2>&1; then
+    echo "==> Installing fish"
+    brew install fish
+fi
+fish_path="$(command -v fish)"
+if ! grep -qxF "$fish_path" /etc/shells 2>/dev/null; then
+    echo "==> Registering fish in /etc/shells (may prompt for sudo)"
+    echo "$fish_path" | sudo tee -a /etc/shells >/dev/null
+fi
+if [ "${SHELL:-}" != "$fish_path" ]; then
+    echo "==> Setting fish as the default shell"
+    chsh -s "$fish_path"
+fi
+
+# --- micro (modeless terminal editor; also the git commit editor) ---
+if ! command -v micro >/dev/null 2>&1; then
+    echo "==> Installing micro"
+    brew install micro
+fi
+
+# --- mise (runtime version manager) ---
+if ! command -v mise >/dev/null 2>&1; then
+    echo "==> Installing mise"
+    brew install mise
+fi
+echo "==> Installing runtimes from ~/.config/mise/config.toml"
+mise install
+
+{{- if eq .machine "work" }}
+
+# --- dbt Fusion (standalone binary; work machine only) ---
+if ! command -v dbt >/dev/null 2>&1; then
+    echo "==> Installing dbt Fusion"
+    brew install dbt
+fi
+{{- end }}
+
+echo "==> Done. Open a new terminal to start using fish."

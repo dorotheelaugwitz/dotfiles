@@ -1,0 +1,6 @@
+{{- $machine := "personal" -}}
+{{- if eq .chezmoi.hostname "Mac" -}}
+{{-   $machine = "work" -}}
+{{- end -}}
+[data]
+    machine = {{ $machine | quote }}

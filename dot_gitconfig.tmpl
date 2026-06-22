@@ -34,8 +34,8 @@
 
 [core]
   autocrlf = input
-  editor = vim
-  excludesfile = /Users/doro/.gitignore
+  editor = micro
+  excludesfile = {{ .chezmoi.homeDir }}/.gitignore
   whitespace = trailing-space,space-before-tab
 
 [fetch]
@@ -73,5 +73,9 @@
   default = current
 
 [user]
-  email = dorothee.laugwitz@posteo.de
   name = Dorothee Laugwitz
+{{- if eq .machine "work" }}
+  email = doro@plancraft.com
+{{- else }}
+  email = dorothee.laugwitz@posteo.de
+{{- end }}

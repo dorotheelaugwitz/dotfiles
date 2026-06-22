@@ -1,0 +1,109 @@
+// ~/.config/zed/settings.json
+//
+// Translated from the most recent Cursor settings
+// (~/Library/Application Support/Cursor/User/settings.json).
+//
+// Some Cursor/VS Code settings have no Zed equivalent and were dropped:
+//   editor.letterSpacing, editor.renderControlCharacters,
+//   editor.smoothScrolling, editor.suggestSelection,
+//   editor.acceptSuggestionOnEnter, terminal.fontWeightBold,
+//   terminal.enableMultiLinePasteWarning, workbench.editor.tabSizing,
+//   gitlens.* tuning, and the various security.workspace.trust / task.* keys.
+{
+  // Coming from Cursor (a VS Code fork), this keeps familiar shortcuts.
+  // Newer Zed builds also offer a "Cursor" base keymap if you prefer.
+  "base_keymap": "VSCode",
+
+  // --- Theme & icons ---
+  // workbench.colorTheme: "Palenight (Mild Contrast)"
+  // Install the "Palenight Theme" extension from the Extensions panel,
+  // then the exact variant name may differ slightly from VS Code's.
+  "theme": {
+    "mode": "dark",
+    "dark": "Palenight",
+    "light": "One Light"
+  },
+  // workbench.iconTheme: "eq-material-theme-icons"
+  // Install the "Material Icon Theme" extension.
+  "icon_theme": "Material Icon Theme",
+
+  // --- Fonts (editor.fontFamily / fontSize / fontLigatures / lineHeight) ---
+  "buffer_font_family": "Fira Code",
+  "buffer_font_fallbacks": ["Menlo", "Monaco", "Courier New"],
+  "buffer_font_size": 15,
+  // editor.fontLigatures: true  ->  enable contextual alternates
+  "buffer_font_features": { "calt": true },
+  // editor.lineHeight: 1.5
+  "buffer_line_height": { "custom": 1.5 },
+
+  // --- Editor behavior ---
+  "tab_size": 2,
+  "format_on_save": "on",
+  "soft_wrap": "editor_width", // editor.wordWrap: "on"
+  "remove_trailing_whitespace_on_save": true, // files.trimTrailingWhitespace
+  "ensure_final_newline_on_save": true, // files.insertFinalNewline + trimFinalNewlines
+  "use_smartcase_search": true, // search.smartCase
+  "colorize_brackets": true, // editor.bracketPairColorization.enabled
+  "minimap": { "show": "never" }, // editor.minimap.enabled: false
+
+  // files.exclude -> file_scan_exclusions.
+  // NOTE: this list OVERRIDES Zed's defaults, so the defaults are repeated
+  // here and your two extra globs (.pytest_cache, __pycache__) are appended.
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.pytest_cache",
+    "**/__pycache__"
+  ],
+
+  // gitblame.inlineMessageFormat "Last change by ${author.name} (${time.ago})"
+  // -> Zed's built-in inline git blame.
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": true
+    }
+  },
+
+  // gitlens.telemetry / redhat.telemetry were disabled in Cursor; mirror that.
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+
+  // window.nativeTabs: true (macOS)
+  "use_system_window_tabs": true,
+
+  // --- Terminal (terminal.integrated.*) ---
+  "terminal": {
+    "blinking": "on", // cursorBlinking: true
+    "cursor_shape": "bar", // cursorStyle: "line"
+    "font_size": 14,
+    // Use fish, to match the shell migration in this repo.
+    "shell": { "program": "fish" }
+  },
+
+  // --- Per-language settings ---
+  "languages": {
+    "Python": {
+      // [python] editor.rulers: [88]
+      "preferred_line_length": 88,
+      "show_wrap_guides": true,
+      "wrap_guides": [88],
+      // editor.defaultFormatter: charliermarsh.ruff
+      // Install the "Ruff" extension; Zed runs it as the language server.
+      "formatter": "language_server",
+      "format_on_save": "on"
+    }
+    // [jinja-sql] editor.rulers: [120] from Cursor has no built-in Zed
+    // language. Install a dbt/Jinja-SQL extension, then add a matching
+    // "languages" entry here with "wrap_guides": [120].
+  }
+}

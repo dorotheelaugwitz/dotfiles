@@ -1,0 +1,23 @@
+# ~/.config/mise/config.toml  (managed by chezmoi)
+#
+# Global runtime versions managed by mise. Per-project versions belong in a
+# `.mise.toml` (or `.tool-versions`) committed to each project repo, which
+# overrides these when you `cd` into it.
+#
+# NOTE: dbt Fusion is intentionally NOT here. It's a standalone binary
+# installed via Homebrew (`brew install dbt`) with dialects (incl. BigQuery)
+# built in — it is not a Python/pipx package.
+
+[tools]
+{{- if eq .machine "work" }}
+# Data engineering + the TypeScript/React dev project.
+python     = "3.12"
+node       = "lts"
+terraform  = "latest"
+terragrunt = "latest"
+{{- else }}
+# Personal machine: lean baseline. Add languages as you explore them, e.g.
+#   mise use -g rust
+#   mise use -g erlang elixir
+node = "lts"
+{{- end }}
