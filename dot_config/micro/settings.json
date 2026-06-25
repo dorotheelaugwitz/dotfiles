@@ -1,4 +1,6 @@
 {
-    "tabsize": 2,
-    "tabstospaces": true
+  "colorscheme": "default16",
+  "softwrap": true,
+  "tabsize": 2,
+  "tabstospaces": true
 }

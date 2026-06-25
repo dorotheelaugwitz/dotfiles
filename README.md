@@ -63,6 +63,7 @@ chezmoi encodes the target path and attributes in the source filename
 | `dot_config/fish/fish_plugins`                | `~/.config/fish/fish_plugins` (Fisher plugins)     |
 | `dot_config/ghostty/config`                   | `~/.config/ghostty/config`                         |
 | `dot_config/micro/settings.json`              | `~/.config/micro/settings.json`                    |
+| `dot_config/bat/config`                       | `~/.config/bat/config`                             |
 | `dot_config/mise/config.toml.tmpl`            | `~/.config/mise/config.toml`                       |
 | `dot_gitconfig.tmpl`                          | `~/.gitconfig`                                     |
 | `dot_gitignore`                               | `~/.gitignore` (git `excludesfile`)                |

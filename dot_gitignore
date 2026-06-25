@@ -6,3 +6,16 @@
 
 tags
 bin/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Env / tooling
+.env
+.direnv/
+.terraform/
