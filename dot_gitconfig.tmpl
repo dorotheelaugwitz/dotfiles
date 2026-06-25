@@ -32,6 +32,12 @@
   status = auto
   ui = auto
 
+[branch]
+  sort = -committerdate
+
+[column]
+  ui = auto
+
 [core]
   autocrlf = input
   editor = micro
@@ -74,6 +80,9 @@
   conflictstyle = zdiff3
   ff = only
 
+[rerere]
+  enabled = true
+
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
 
@@ -83,6 +92,7 @@
 [push]
   autoSetupRemote = true
   default = current
+  followTags = true
 
 [user]
   name = Dorothee Laugwitz

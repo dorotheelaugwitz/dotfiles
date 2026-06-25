@@ -9,7 +9,7 @@ synced across machines through this Git repo.
 | Terminal | [Ghostty](https://ghostty.org/)                                                           |
 | Editors  | [Zed](https://zed.dev/) (GUI) · [micro](https://micro-editor.github.io/) (terminal & git) |
 | Runtimes | [mise](https://mise.jdx.dev/)                                                             |
-| CLI      | eza · bat · fd · fzf · delta                                                              |
+| CLI      | eza · bat · fd · fzf · delta · zoxide                                                     |
 
 Machines are identified by hostname, so the same repo produces the right config
 on each — see [Configuration](#configuration).
@@ -24,7 +24,7 @@ That one command installs chezmoi, clones this repo, applies it, and runs the
 bootstrap, which installs:
 
 - Homebrew
-- CLI tools: fish (set as the default shell), micro, mise, eza, bat, fd, fzf, git-delta, jj
+- CLI tools: fish (set as the default shell), micro, mise, eza, bat, fd, fzf, git-delta, jj, zoxide
 - GUI apps: Ghostty, Zed
 - the mise runtimes for this machine
 

@@ -18,7 +18,14 @@ end
 
 fish_add_path $HOME/.local/bin
 
-# fzf key bindings (Ctrl-R history, Ctrl-T files, Alt-C cd)
+# fzf: fuzzy finder (Ctrl-R history, Ctrl-T files, Alt-C cd), sourced from fd
+set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude .git'
+set -gx FZF_DEFAULT_OPTS '--height 40% --layout reverse --border'
 if type -q fzf
     fzf --fish | source
+end
+
+# zoxide: smart cd (use `z <dir>`)
+if type -q zoxide
+    zoxide init fish | source
 end
