@@ -25,6 +25,7 @@ alias pip='pip3'
 
 # dbt
 alias dbt-clear='dbt run-operation drop_old_relations --args "{\"dryrun\": false}"'
+alias dbtf='$HOME/.local/bin/dbt'
 
 # terraform
 alias tg='terragrunt'

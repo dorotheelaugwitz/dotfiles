@@ -24,7 +24,7 @@ That one command installs chezmoi, clones this repo, applies it, and runs the
 bootstrap, which installs:
 
 - Homebrew
-- CLI tools: fish (set as the default shell), micro, mise, eza, bat, fd, fzf, git-delta, jj, zoxide
+- CLI tools: fish (set as the default shell), micro, mise, eza, bat, fd, fzf, git-delta, jj, zoxide, duti
 - GUI apps: Ghostty, Zed
 - the mise runtimes for this machine
 
@@ -69,6 +69,7 @@ chezmoi encodes the target path and attributes in the source filename
 | `dot_gitignore`                               | `~/.gitignore` (git `excludesfile`)                |
 | `.chezmoi.toml.tmpl`                          | generates `~/.config/chezmoi/chezmoi.toml` on init |
 | `run_onchange_after_install-packages.sh.tmpl` | toolchain bootstrap                                |
+| `run_onchange_after_set-default-apps.sh`      | make Zed the default app for text/code files       |
 | `run_once_macos-defaults.sh`                  | macOS system defaults (runs once)                  |
 
 ## Daily workflow

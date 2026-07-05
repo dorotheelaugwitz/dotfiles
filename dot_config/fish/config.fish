@@ -10,6 +10,7 @@ set -gx EDITOR micro
 set -gx VISUAL micro
 set -gx PKG_CONFIG_PATH /opt/homebrew/lib/pkgconfig
 set -gx LESS "-R --mouse"   # mouse-wheel scrolling in pagers (git diff, man, ...)
+set -gx HOMEBREW_NO_UPGRADE_QUIT_CASKS 1   # brew upgrade won't force-quit running apps
 
 # Activate mise-managed runtimes.
 if type -q mise

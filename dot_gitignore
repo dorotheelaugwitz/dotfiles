@@ -2,7 +2,6 @@
 
 .DS_Store
 .ipynb_checkpoints/
-.zed/
 
 tags
 bin/
