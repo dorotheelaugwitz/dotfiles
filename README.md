@@ -3,13 +3,13 @@
 Personal macOS dotfiles, managed with [chezmoi](https://www.chezmoi.io/) and
 synced across machines through this Git repo.
 
-|          |                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------- |
-| Shell    | [fish](https://fishshell.com/)                                                            |
-| Terminal | [Ghostty](https://ghostty.org/)                                                           |
-| Editors  | [Zed](https://zed.dev/) (GUI) · [micro](https://micro-editor.github.io/) (terminal & git) |
-| Runtimes | [mise](https://mise.jdx.dev/)                                                             |
-| CLI      | eza · bat · fd · fzf · delta · zoxide                                                     |
+|          |                                                                                                            |
+| -------- | ---------------------------------------------------------------------------------------------------------- |
+| Shell    | [fish](https://fishshell.com/)                                                                             |
+| Terminal | [Ghostty](https://ghostty.org/)                                                                            |
+| Editors  | [VSCode](https://code.visualstudio.com/) (GUI) · [micro](https://micro-editor.github.io/) (terminal & git) |
+| Runtimes | [mise](https://mise.jdx.dev/)                                                                              |
+| CLI      | eza · bat · fd · fzf · delta · zoxide                                                                      |
 
 Machines are identified by hostname, so the same repo produces the right config
 on each — see [Configuration](#configuration).
@@ -25,7 +25,7 @@ bootstrap, which installs:
 
 - Homebrew
 - CLI tools: fish (set as the default shell), micro, mise, eza, bat, fd, fzf, git-delta, jj, zoxide, duti
-- GUI apps: Ghostty, Zed
+- GUI apps: Ghostty, VSCode
 - the mise runtimes for this machine
 
 It also applies macOS defaults once (`run_once_macos-defaults.sh`).
@@ -98,12 +98,11 @@ mise install            # install everything in scope
 
 ## Editors & terminal
 
-- **Zed** — its config is intentionally **not** managed here. Zed uses a single
-  user `settings.json` with no local-override mechanism, and it holds
-  machine-specific values (MCP servers, model/agent config), so it's kept local
-  per machine.
+- **VSCode** — its `settings.json` and extensions aren't managed here (editor
+  config is machine-specific and VSCode has its own Settings Sync). Claude is
+  the AI assistant via the `anthropic.claude-code` extension.
 - **micro** is the modeless terminal editor, set as `$EDITOR`/`$VISUAL` and
-  git's `core.editor`. Open files in the GUI with `zed`.
+  git's `core.editor`. Open files in the GUI with `code`.
 - **Prompt** — [hauleth/agnoster](https://github.com/hauleth/agnoster) (powerline)
   via Fisher; the plugin list is `dot_config/fish/fish_plugins` and the bootstrap
   runs `fisher update`. `jj` is installed so agnoster's jujutsu segment doesn't error.
